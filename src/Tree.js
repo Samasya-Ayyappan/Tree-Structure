@@ -200,11 +200,13 @@ function Tree() {
                     </div>
                 )}
 
-                <div className="bg-secondary rounded-pill p-2 w-25 m-5">
-                    <button onClick={() => toggleForm(null)} className="m-2 bg-secondary border-0">
-                        <FaPlus />
-                    </button>
-                </div>
+                {nodes.length === 0 && (
+                    <div className="bg-secondary rounded-pill p-2 w-25 m-5">
+                        <button onClick={() => toggleForm(null)} className="m-2 bg-secondary border-0">
+                            <FaPlus />
+                        </button>
+                    </div>
+                )}
 
                 {displayForm && (
                     <form onSubmit={handleSubmit} className="p-3 text-start w-50 border border-5 border-secondary border-top-0 border-bottom-0">
@@ -216,7 +218,7 @@ function Tree() {
                                 name="title"
                                 value={formData.title}
                                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                                className="mt-1 w-100 border-0 border-bottom focus:border-secondary focus:outline-none"
+                                className="mt-1 w-100 border-0 border-bottom "
                             />
                         </label>
                         <label className="w-100 mt-2">

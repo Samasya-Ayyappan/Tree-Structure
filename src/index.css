@@ -3,9 +3,9 @@ form{
   position: relative;
 }
 
-input:focus {
-  border-color: #ff9900;
+input:focus{
   outline: none;
+  border:2px solid orange;
 }
 
 button{
