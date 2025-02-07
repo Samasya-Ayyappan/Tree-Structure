@@ -117,11 +117,11 @@ function Tree() {
                 </label>
                 <div className="node-actions bg-secondary rounded-pill p-2">
                     <button onClick={() => toggleForm(null, node)} className="m-1 bg-secondary border-0">
-                        <VscEdit />
+                        <VscEdit className="text-light" />
                     </button>
                     {node.children.length === 0 && (
                         <button onClick={() => handleDelete(node.id)} className="m-1 bg-secondary border-0">
-                            <RiDeleteBinLine />
+                            <RiDeleteBinLine className="text-light" />
                         </button>
                     )}
                 </div>
@@ -183,33 +183,35 @@ function Tree() {
 
     return (
         <center>
-            <div className="w-100">
+            <div className="w-100 conatiner-fluid row">
                 <h1 className="display-1">Tree Structure</h1>
 
                 {/* React Flow Chart */}
                 {nodes.length === 0 ? (
                     <p className="mt-4">No nodes available. Please add a node to get started.</p>
                 ) : (
-                    <div style={{ width: "100%", height: "600px" }}>
+                    <div style={{ width: "100%", height: "600px" }} className="w-100 p-3 p-md-5">
                         <ReactFlow
                             nodes={flowNodes}
                             edges={flowEdges}
                             fitView
-                            className="border m-5 container"
+                            className="border w-100"
                         />
                     </div>
                 )}
 
                 {nodes.length === 0 && (
-                    <div className="bg-secondary rounded-pill p-2 w-25 m-5">
+                    <center>
+                        <div className="bg-secondary rounded-pill p-2 w-25 m-5">
                         <button onClick={() => toggleForm(null)} className="m-2 bg-secondary border-0">
-                            <FaPlus />
+                            <FaPlus className="text-light" />
                         </button>
                     </div>
+                    </center>
                 )}
 
                 {displayForm && (
-                    <form onSubmit={handleSubmit} className="p-3 text-start w-50 border border-5 border-secondary border-top-0 border-bottom-0">
+                    <form onSubmit={handleSubmit} className="p-3 mt-5 text-start col-10 col-lg-8 col-xl-6 border border-5 border-secondary border-top-0 border-bottom-0 container-fluid">
                         <h5 className="mb-5 ">{editMode ? "Edit Node" : "Add Node"}</h5>
                         <label className="w-100">
                             Title
